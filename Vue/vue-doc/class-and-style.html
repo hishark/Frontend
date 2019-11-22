@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>vue test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div v-bind:class="{ active: isActive }"></div>
+
+    <div id="app" class="static" v-bind:class="classObject"></div>
+
+    <div id="test1" v-bind:class="classObject" class="static">test1</div>
+
+    <div id="styletest" v-bind:style="styleObject">styletest</div>
+</body>
+
+</html>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            classObject: {
+                active: true,
+                'text-danger': false
+            }
+        }
+    })
+
+    var vm1 = new Vue({
+        el: '#test1',
+        data: {
+            isActive: true,
+            error: null
+        },
+        computed: {
+            classObject: function(){
+                return {
+                    active: this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal'
+                }
+            }
+        }
+    })
+
+    var vm2 = new Vue({
+        el: '#styletest',
+        data: {
+            styleObject: {
+                color: 'red',
+                fontSize: '20px'
+            }
+        }
+    })
+</script>

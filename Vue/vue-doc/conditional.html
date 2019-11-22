@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>vue test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="conditionaltest">
+        <h1 v-if="awesome">Vueeeee!</h1>
+        <h1 v-else>😢</h1>
+    </div>
+
+</body>
+
+</html>
+<script>
+    var vm1 = new Vue({
+        el: '#conditionaltest',
+        data: {
+            awesome: true
+        }
+    })
+</script>
